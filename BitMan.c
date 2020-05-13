@@ -159,3 +159,19 @@ int main()
     printf("%d ", val); 
     return 0; 
 } 
+
+---------------************************---------------------------
+
+int multiplyBySeven(unsigned int n) 
+{
+	return ((n<<3) - n); //8-n 
+} 
+
+/* Driver program to test above function */
+int main() 
+{ 
+	unsigned int n = 4; 
+	printf("%u", multiplyBySeven(n)); 
+
+	return 0; 
+} 

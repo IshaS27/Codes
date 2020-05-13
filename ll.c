@@ -14,7 +14,7 @@ void addbyint(struct Node **headref, int dat) //addbyint(&head,14);
 {
 	struct Node *new= (struct Node*)malloc(sizeof(struct Node));
 	new->data=dat;
-	new->next = *headref;
+	new->next = *headref; 
 	*headref = new;
 }
 
@@ -94,14 +94,14 @@ void deletebypos(struct Node **headref, int pos) //deletebypos(&head,2);
 
 void reverse(struct Node **headref) //reverse(&head);	printll(head);
 {
-	struct Node *current= *headref, *prev = NULL, *next=NULL;
+	struct Node *current= *headref, *prev = NULL, *nxt=NULL;
 
 	while(current!=NULL)
 	{
-		next=current->next;
+		nxt=current->next;
 		current->next = prev;
 		prev=current;
-		current=next;
+		current=nxt;
 	}
 
 	*headref=prev;
@@ -246,7 +246,6 @@ struct QNode {
 	int key; 
 	struct QNode* next; 
 }; 
-
 // The queue, front stores the front node of LL and rear stores the 
 // last node of LL 
 struct Queue { 
@@ -261,7 +260,6 @@ struct QNode* newNode(int k)
 	temp->next = NULL; 
 	return temp; 
 } 
-
 // A utility function to create an empty queue 
 struct Queue* createQueue() 
 { 
@@ -333,3 +331,57 @@ void mergecall(struct Node *ht1,struct Node *ht2, struct Node *ht3)
 		printf("%d ", h3->data);
 }
 }
+------------************************---------------
+//evenodd
+
+void segregateEvenOdd(struct Node **head_ref) 
+{ 
+    struct Node *temp = *head_ref, *oddt, *event;
+    struct Node *end = *head_ref; 
+    struct Node *prev = NULL; 
+    struct Node *curr = *head_ref; 
+
+    while (end->next != NULL) 
+        e nd = end->next; 
+  
+    struct Node *new_end = end; 
+  
+    while (curr->data %2 != 0 && curr != end) 
+    { 
+        new_end->next = curr; 
+        curr = curr->next; 
+        new_end->next->next = NULL; 
+        new_end = new_end->next; 
+    } 
+
+    if (curr->data%2 == 0) 
+    { 
+        *head_ref = curr; 
+        while (curr != end) 
+        { 
+            if ( (curr->data)%2 == 0 ) 
+            { 
+                prev = curr; 
+                curr = curr->next; 
+            } 
+            else
+            { 
+                prev->next = curr->next; 
+                curr->next = NULL; 
+                new_end->next = curr; 
+                new_end = curr; 
+                curr = prev->next; 
+            } 
+        } 
+    } 
+  
+    else prev = curr; 
+  
+    if (new_end!=end && (end->data)%2 != 0) 
+    { 
+        prev->next = end->next; 
+        end->next = NULL; 
+        new_end->next = end; 
+    } 
+    return; 
+} 
