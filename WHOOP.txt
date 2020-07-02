@@ -1,0 +1,57 @@
+//RESUME
+
+-- IoT AND APES Projects (SW/HW)
+
+
+
+//KEYWORDS
+
+-- Static variables and functions and scopes
+-- Extern
+-- Volatile/COnstant
+
+//Basics Of C
+
+-- Bitstuff (hex= 4 bits each) 11010001
+
+-- Memory organization
+
+--Virtual Memory
+
+-- Struct/stack padding and formatting/self referential structure -> Extra bytes added, 32 bit=4 byte memory reads/generic, avoid by arranging well
+
+-- size of ptr, data types - ARCH based/OS used 
+
+-- Function pointers
+
+-- Endianness -> B (MSB)/L (LSB) first
+
+-- Data Structures - BST, LL
+
+-- Best Practices
+
+//Scheduling/CPU time slices
+
+-- Basics (Round Robin, FiCO, etc)
+
+-- IPC
+
+-- Context Switching (KERNEL), Mutual Exclusion/Semaphores/SpinLocks - Data races,Deadlocks
+
+//IoT
+
+-- BLE stack/MITM/Adv-connect-bond
+
+//ARM STUFF
+
+-- Interrupts
+
+
+-- Memory
+
+-- A-R-M
+
+
+
+//Cache/Pipelining 
+

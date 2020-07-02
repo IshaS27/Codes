@@ -76,7 +76,7 @@ void convertendian()
 {
 	int32_t x = 0x12345678;
 	x = ( x >> 24 ) | (( x << 8) & 0x00ff0000 )| ((x >> 8) & 0x0000ff00) | ( x << 24)  ; 
-	printf("value = %x \n", x);  // x will be printed as 0x78563412
+	printf("value = 0x%x \n", x);  // x will be printed as 0x78563412
 }
 
 --------------------------****************************************-------------------------------
@@ -175,3 +175,29 @@ int main()
 
 	return 0; 
 } 
+---------------************************---------------------------
+//RANDOM MASKING
+void func()
+{
+    uint16_t sen = 53672;
+    
+    uint8_t f = 0xC3;
+    uint16_t s = sen;
+    
+    unsigned char op[4];
+    
+    
+    op[1] = ((f & 0x0F) + 48);
+    uint8_t ft1 = (f & 0xF0) >> 4;
+    op[0] = ft1 + 55;
+    ft1=0;
+    uint8_t ft2=0;
+    
+    ft2 = (s & 0x00FF); //second part
+    
+    op[3] = (char)ft2;
+    s = (s & 0xFF00); // first part
+    ft1 = s>>8;
+    
+    op[2] = (char)ft1;
+}

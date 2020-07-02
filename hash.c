@@ -43,15 +43,14 @@ void insert(int key,int data) {
    struct DataItem *item = (struct DataItem*) malloc(sizeof(struct DataItem));
    item->data = data;  
    item->key = key;
-
+   
    //get the hash 
    int hashIndex = hashCode(key);
 
    //move in array until an empty or deleted cell
    while(hashArray[hashIndex] != NULL && hashArray[hashIndex]->key != -1) {
       //go to next cell
-      ++hashIndex;
-		
+      ++hashIndex; 
       //wrap around the table
       hashIndex %= SIZE;
    }
@@ -72,7 +71,7 @@ struct DataItem* delete(struct DataItem* item) {
          struct DataItem* temp = hashArray[hashIndex]; 
 			
          //assign a dummy item at deleted position
-         hashArray[hashIndex] = dummyItem; 
+         hashArray[hashIndex] = dummyItem; // struct DataItem* dummyItem;
          return temp;
       }
 		
@@ -107,8 +106,8 @@ int main() {
 
    insert(1, 20);
    insert(2, 70);
-   insert(42, 80);
    insert(4, 25);
+   insert(42, 80);
    insert(12, 44);
    insert(14, 32);
    insert(17, 11);

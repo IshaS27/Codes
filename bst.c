@@ -114,3 +114,20 @@ struct Node* search(struct Node *root,int k) //assuming no duplicates/will be fo
 		printf("Key not found\n");
 	printbst(root);*/
 }
+
+int maxDepth(struct TreeNode* root){
+    
+   if (root==NULL)  
+       return 0; 
+   else 
+   { 
+       /* compute the depth of each subtree */
+       int lDepth = maxDepth(root->left); 
+       int rDepth = maxDepth(root->right); 
+  
+       /* use the larger one */
+       if (lDepth > rDepth)  
+           return(lDepth+1); 
+       else return(rDepth+1); 
+   } 
+}

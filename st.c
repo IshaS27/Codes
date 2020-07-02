@@ -1,9 +1,9 @@
-// Returns true if s1 is substring of s2 
+//returns index of substring
 int isSubstring(char* s1, char* s2) 
 { 
     int M = strlen(s1); 
     int N = strlen(s2); 
-    /* A loop to slide pat[] one by one */
+
     for (int i = 0; i <= N - M; i++) { 
         int j; 
         /* For current index i, check for pattern match */
@@ -43,7 +43,7 @@ void swap2(char *str1, char *str2)   // char str1[10] = "hello"; char str2[10] =
   strcpy(str2, temp); 
   free(temp); 
 }   
-
+//ANAGRAM
 void anagram()
 {
   char *s1 = (char *)malloc(10*sizeof(char));
@@ -254,4 +254,79 @@ void subs()
       position++;
       length = 1;
    }
+}
+------------------**************************------------------
+//PERMUTATIONS of a string
+// C program to print all permutations with duplicates allowed 
+#include <stdio.h> 
+#include <string.h> 
+
+/* Function to swap values at two pointers */
+void swap(char *x, char *y) 
+{ 
+	char temp; 
+	temp = *x; 
+	*x = *y; 
+	*y = temp; 
+} 
+
+/* Function to print permutations of string 
+This function takes three parameters: 
+1. String 
+2. Starting index of the string 
+3. Ending index of the string. */
+void permute(char *a, int l, int r) 
+{ 
+int i; 
+if (l == r) 
+	printf("%s\n", a); 
+else
+{ 
+	for (i = l; i <= r; i++) 
+	{ 
+		swap((a+l), (a+i)); 
+		permute(a, l+1, r); 
+		swap((a+l), (a+i)); //backtrack 
+	} 
+} 
+} 
+/* Driver program to test above functions */
+int main() 
+{ 
+	char str[] = "ABC"; 
+	int n = strlen(str); 
+	permute(str, 0, n-1); 
+	return 0; 
+} 
+---------------------------*********************-----------------------
+//ATOI
+int main()
+{
+    char s[] = "1234";
+    int num=0,d;
+    char ch;
+    for(int i=0;i<strlen(s);i++)
+    {
+        ch = *(s+i);
+        d=ch-48;
+        num = num*10 + d;
+    }
+
+    printf("%d",num);
+    return 0;
+}
+-----------------------***************************--------------
+//INPUT MANY WORDS
+int main()
+{
+    char *s[5];
+    for(int i=0;i<5;i++)
+        s[i] = (char*)malloc(25*sizeof(char));
+    
+    for(int i=0;i<5;i++)
+        scanf("%s",s[i]);
+    for(int i=0;i<5;i++)
+        printf("%s ",s[i]);
+
+    return 0;
 }

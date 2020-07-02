@@ -22,7 +22,7 @@ void deletebyval(struct Node **headref, int val) /*considering no duplicates*/
 {
 	//printf("VAL %d \n",val);
 	struct Node *temp = *headref, *prev; 
-	if(*headref == NULL)
+	if(*headref == NULL) 
 	{
 		printf("Cannot delete empty LL! \n");
 		return;
@@ -105,6 +105,7 @@ void reverse(struct Node **headref) //reverse(&head);	printll(head);
 	}
 
 	*headref=prev;
+	
 }
 
 void retn(struct Node *headref, int n) //retn(head,6);	printll(head);
@@ -241,7 +242,7 @@ int main()
 #include <stdio.h> 
 #include <stdlib.h> 
 
-// A linked list (LL) node to store a queue entry 
+// A linked list (LL) node to store a queue entry -FIFO
 struct QNode { 
 	int key; 
 	struct QNode* next; 
@@ -279,7 +280,6 @@ void enQueue(struct Queue* q, int k) //	struct Queue* q = createQueue(); enQueue
 		q->front = q->rear = temp; 
 		return; 
 	} 
-
 	// Add the new node at the end of queue and change rear 
 	q->rear->next = temp; 
 	q->rear = temp; 
@@ -385,3 +385,28 @@ void segregateEvenOdd(struct Node **head_ref)
     } 
     return; 
 } 
+-----------*******************-----------------
+// Fucntion to delete the node without head 
+void deleteNodeWithoutHead(struct Node* pos) 
+{ 
+    if (pos == NULL) // If linked list is empty  
+        return; 
+    else { 
+  
+        if (pos->next == NULL) { 
+            printf("This is last node, require head, can't be freed\n"); 
+            return; 
+        } 
+  
+        struct Node* temp = pos->next; 
+  
+        // Copy data of the next node to current node 
+        pos->data = pos->next->data; 
+  
+        // Perform conventional deletion 
+        pos->next = pos->next->next; 
+  
+        free(temp); 
+    } 
+} 
+  
