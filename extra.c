@@ -16,7 +16,9 @@ int is_prime(int v)
      }
      return (v > 1); 
  }
- 
+
+
+//no more need
  -------------************************------------
  //Uart driver-- 
  flow control using circ buffer
